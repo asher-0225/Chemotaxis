@@ -8,7 +8,7 @@ void setup()
   bob.show();
 
   fred=new Walker[10];
-  john=new bigboy[5];
+  john=new bigboy[10];
   for (int i =0; i< fred.length; i++)
     {
       fred[i] = new Walker();
@@ -26,16 +26,23 @@ void draw()
   {
     fred[i].show();
     fred[i].walk();
+    if (get(mouseX,mouseY) !=color(100))
+    text("bonk", 100,100);
+    textSize(20);
   }
   for (int r =0; r< john.length; r++)
   { 
     john[r].show();
     john[r].walk();
+    if (get(mouseX,mouseY) !=color(100))
+    text("bonk", 100,100);
+    textSize(20);
   }
 }
 void mousePressed() {
   Bogus bob = new Bogus();
   bob.show();
+  redraw();
 }
 class Bogus
 {
@@ -62,8 +69,8 @@ class Walker
   }
   void walk()
   {
-    myX=myX+ (int)(Math.random()*30)-15;
-    myY=myY+ (int)(Math.random()*30)-15;
+    myX=(mouseX)+(int)(Math.random()*100);
+    myY=(mouseY)+(int)(Math.random()*100);
   }
   void show()
  
